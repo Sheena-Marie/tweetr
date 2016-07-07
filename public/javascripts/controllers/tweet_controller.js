@@ -4,6 +4,7 @@ angular.module('tweetr')
   TweetService.getTweetsFromServer()
   .then(function(tweets){
     $scope.tweets = tweets;
+    $scope.$apply();
   });
 
   // http.get('/tweets')
@@ -12,8 +13,12 @@ angular.module('tweetr')
   //   return $scope.tweets = res.data;
   // });
 
-  $scope.addTweet = function(text) {
-    TweetService.addTweet(text);
+  $scope.addTweet = function(tweet) {
+    TweetService.postTweetToServer(tweet)
+    .then(function(tweet) {
+      $scope.tweets.push(tweet);
+      $scope.$apply();
+    });
     $scope.tweet.text = '';
   };
 }]);

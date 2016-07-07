@@ -13,6 +13,16 @@ angular.module('tweetr')
   });
 };
 
+this.postTweetToServer = function(tweet){
+  return new Promise(function(resolve, reject){
+    $http.post('/tweets', {tweet: tweet})
+    .then(function(res){
+      console.log('we posted han solo on instagram');
+      return resolve(res.data);
+    });
+  });
+};
+
   window.TweetService = this;
   // getTweetsFromServer();
 
