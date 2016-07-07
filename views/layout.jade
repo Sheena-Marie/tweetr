@@ -1,0 +1,11 @@
+doctype html
+html(ng-app='tweetr')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js')
+  body
+    block content
+    script(src='/javascripts/app.js')
+    script(src='/javascripts/services/tweet_services.js')
+    script(src='/javascripts/controllers/tweet_controller.js')

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= tWeetR
+  div(ng-controller="TweetController")
+    form(ng-submit='addTweet(tweet.text)')
+      input(type='text', ng-model='tweet.text')
+      button = TWEET
+    div
+      Tweets: {{tweets}}
